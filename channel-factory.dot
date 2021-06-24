@@ -17,10 +17,13 @@ digraph T {
   alice_bob [label="Alice & Bob"];
   alice_carol [label="Alice & Carol"];
   bob_carol [label="Bob & Carol"];
-  node [shape=point];
-  commitment_ab [color=red];
-  commitment_ac [color=red];
-  commitment_bc [color=red];
+  node [shape=none];
+  hook [label="Hook"];
+  allocation [label="Allocation"];
+  commitment_ab [color=red, label="Commitment", fontcolor=red];
+  commitment_ac [color=red, label="Commitment", fontcolor=red];
+  commitment_bc [color=red, label="Commitment", fontcolor=red];
+  settlement [label="Settlement"];
   edge [tailport=e, headport=w];
   alice0 -> hook [arrowhead=none];
   bob0 -> hook [arrowhead=none];
@@ -42,7 +45,7 @@ digraph T {
   commitment_bc -> bob2;
   commitment_bc -> carol2;
   edge [style=solid, color=black];
-  alice_bob_carol -> settlement [arrowhead=none];
+  alice_bob_carol -> settlement [arrowhead=none, tailport=s];
   settlement -> alice3;
   settlement -> bob3;
   settlement -> carol3;
